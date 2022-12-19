@@ -13,7 +13,7 @@ const CellStyles = styled.div`
   align-items: center;
   font-weight: bold;
   font-size: 24px;
-  margin: 15px;
+  margin: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 `;
 const Cell: React.FC<ICell> = ({ value, onClick = () => {} }) => {

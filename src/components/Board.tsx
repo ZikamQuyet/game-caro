@@ -10,18 +10,14 @@ const BoardStyles = styled.div`
   margin: 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* margin: 30px 0; */
+  grid-template-rows: repeat(3, 1fr);
 `;
 
 const Board: React.FC<IBoard> = ({ cells, onClick }) => {
   return (
     <BoardStyles>
-      {cells.map((item: any, i) => (
-        <div className="colum" key={i}>
-          {item.map((ele: any, j: any) => (
-            <Cell key={j} value={ele} onClick={() => onClick(i, j)}></Cell>
-          ))}
-        </div>
+      {cells.map((item, index) => (
+        <Cell key={index} value={item} onClick={() => onClick(index)}></Cell>
       ))}
     </BoardStyles>
   );
