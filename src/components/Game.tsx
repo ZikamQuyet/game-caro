@@ -5,6 +5,7 @@ import Board from "./Board";
 import Button from "./Button";
 
 const GameStyles = styled.div`
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,24 +17,12 @@ const GameStyles = styled.div`
   }
 `;
 const Game: React.FC = () => {
-  const [board, setBoard] = useState(Array(3).fill(Array(3).fill(null)));
+  const [board, setBoard] = useState(Array(10).fill(Array(10).fill(null)));
   const [xIsNext, setXIsNext] = useState(true);
   const winner = calculateWinner(board);
-  // calculateWinner(board);
-
   const handleClick = (i: any, j: any) => {
     const boardCopy = JSON.parse(JSON.stringify(board));
-    // if (winner || boardCopy[index]) {
-    //   return;
-    // }
-    // boardCopy[index] = xIsNext ? "X" : "O";
-    // boardCopy.forEach((item1, index1) => {
-    //   if (index1 === i) {
-    //     item1.forEach((item2: any, index2: any) => {
-    //       if (index2 === j) item2 = "X";
-    //     });
-    //   }
-    // });
+
     if (winner || boardCopy[i][j]) return;
     for (let index1 = 0; index1 < boardCopy.length; index1++) {
       if (index1 === i) {
@@ -44,14 +33,12 @@ const Game: React.FC = () => {
         }
       }
     }
-
     setBoard(boardCopy);
     setXIsNext(!xIsNext);
   };
   const handleResetGame = () => {
-    setBoard(Array(3).fill(Array(3).fill(null)));
-
-    // setXIsNext(true);
+    setBoard(Array(10).fill(Array(10).fill(null)));
+    setXIsNext(true);
   };
   return (
     <GameStyles>

@@ -9,7 +9,7 @@ interface IBoard {
 const BoardStyles = styled.div`
   margin: 25px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   /* margin: 30px 0; */
 `;
 
